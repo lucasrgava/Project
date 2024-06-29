@@ -441,19 +441,19 @@ a    V6/V8   3.41875
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnett</span>(<span class="at">trat =</span> aacpd1<span class="sc">$</span>treat, <span class="at">resp =</span> aacpd1<span class="sc">$</span>aacpd, <span class="at">control =</span> <span class="st">'TESTEMUNHA'</span>, <span class="at">model =</span> <span class="st">'DBC'</span>, <span class="at">block =</span> aacpd1<span class="sc">$</span>block)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                     Estimate    IC-lwr     IC-upr t value
-TESTEMUNHA  -  FOX V6/V8           -2.7027778 -4.970610 -0.4349456 -3.3739
-TESTEMUNHA  -  FOX V6/V8+VT        -3.6944444 -5.962277 -1.4266122 -4.6118
-TESTEMUNHA  -  FOX VT              -0.9333333 -3.201166  1.3344989 -1.1651
-TESTEMUNHA  -  PRIORIXTRA V6/V8    -2.9513889 -5.219221 -0.6835567 -3.6842
-TESTEMUNHA  -  PRIORIXTRA V6/V8+VT -4.9069444 -7.174777 -2.6391122 -6.1254
-TESTEMUNHA  -  PRIORIXTRA VT       -1.9458333 -4.213666  0.3219989 -2.4290
+TESTEMUNHA  -  FOX V6/V8           -2.7027778 -4.969749 -0.4358069 -3.3739
+TESTEMUNHA  -  FOX V6/V8+VT        -3.6944444 -5.961415 -1.4274736 -4.6118
+TESTEMUNHA  -  FOX VT              -0.9333333 -3.200304  1.3336375 -1.1651
+TESTEMUNHA  -  PRIORIXTRA V6/V8    -2.9513889 -5.218360 -0.6844180 -3.6842
+TESTEMUNHA  -  PRIORIXTRA V6/V8+VT -4.9069444 -7.173915 -2.6399736 -6.1254
+TESTEMUNHA  -  PRIORIXTRA VT       -1.9458333 -4.212804  0.3211375 -2.4290
                                    p-value sig
-TESTEMUNHA  -  FOX V6/V8            0.0163   *
-TESTEMUNHA  -  FOX V6/V8+VT         0.0012   *
-TESTEMUNHA  -  FOX VT               0.7138  ns
-TESTEMUNHA  -  PRIORIXTRA V6/V8     0.0085   *
+TESTEMUNHA  -  FOX V6/V8            0.0162   *
+TESTEMUNHA  -  FOX V6/V8+VT         0.0011   *
+TESTEMUNHA  -  FOX VT               0.7139  ns
+TESTEMUNHA  -  PRIORIXTRA V6/V8     0.0084   *
 TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  0.0000   *
-TESTEMUNHA  -  PRIORIXTRA VT        0.1090  ns</code></pre>
+TESTEMUNHA  -  PRIORIXTRA VT        0.1089  ns</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -578,19 +578,19 @@ a    VT      7.34625
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnett</span>(<span class="at">trat =</span> y.max1<span class="sc">$</span>treat, <span class="at">resp =</span> y.max1<span class="sc">$</span>sev.med, <span class="at">control =</span> <span class="st">'TESTEMUNHA'</span>, <span class="at">model =</span> <span class="st">'DBC'</span>, <span class="at">block =</span> y.max1<span class="sc">$</span>block)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                   Estimate     IC-lwr     IC-upr t value
-TESTEMUNHA  -  FOX V6/V8            -4.8250  -8.751076 -0.8989239 -3.4746
-TESTEMUNHA  -  FOX V6/V8+VT         -5.0325  -8.958576 -1.1064239 -3.6240
-TESTEMUNHA  -  FOX VT               -1.2000  -5.126076  2.7260761 -0.8642
-TESTEMUNHA  -  PRIORIXTRA V6/V8     -3.6700  -7.596076  0.2560761 -2.6429
-TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  -6.9150 -10.841076 -2.9889239 -4.9797
-TESTEMUNHA  -  PRIORIXTRA VT        -2.1825  -6.108576  1.7435761 -1.5717
+TESTEMUNHA  -  FOX V6/V8            -4.8250  -8.754418 -0.8955822 -3.4746
+TESTEMUNHA  -  FOX V6/V8+VT         -5.0325  -8.961918 -1.1030822 -3.6240
+TESTEMUNHA  -  FOX VT               -1.2000  -5.129418  2.7294178 -0.8642
+TESTEMUNHA  -  PRIORIXTRA V6/V8     -3.6700  -7.599418  0.2594178 -2.6429
+TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  -6.9150 -10.844418 -2.9855822 -4.9797
+TESTEMUNHA  -  PRIORIXTRA VT        -2.1825  -6.111918  1.7469178 -1.5717
                                    p-value sig
 TESTEMUNHA  -  FOX V6/V8            0.0130   *
 TESTEMUNHA  -  FOX V6/V8+VT         0.0095   *
 TESTEMUNHA  -  FOX VT               0.8905  ns
 TESTEMUNHA  -  PRIORIXTRA V6/V8     0.0725  ns
-TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  0.0006   *
-TESTEMUNHA  -  PRIORIXTRA VT        0.4460  ns</code></pre>
+TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  0.0005   *
+TESTEMUNHA  -  PRIORIXTRA VT        0.4456  ns</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -710,12 +710,12 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnett</span>(<span class="at">trat =</span> produtividade2<span class="sc">$</span>treat, <span class="at">resp =</span> produtividade2<span class="sc">$</span>productivity, <span class="at">control =</span> <span class="st">'TESTEMUNHA'</span>, <span class="at">model =</span> <span class="st">'DBC'</span>, <span class="at">block =</span> produtividade2<span class="sc">$</span>block)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                        Estimate     IC-lwr    IC-upr t value
-TESTEMUNHA  -  FOX V6/V8              -0.7009225 -10.295307  8.893462 -0.2068
-TESTEMUNHA  -  FOX V6/V8 + VT          1.4375000  -8.156885 11.031885  0.4241
-TESTEMUNHA  -  FOX VT                  1.1435200  -8.450865 10.737905  0.3374
-TESTEMUNHA  -  PRIORI XTRA V6/V8       0.8472225  -8.747162 10.441607  0.2500
-TESTEMUNHA  -  PRIORI XTRA V6/V8 + VT  1.2361125  -8.358272 10.830497  0.3647
-TESTEMUNHA  -  PRIORI XTRA VT          0.1944475  -9.399937  9.788832  0.0574
+TESTEMUNHA  -  FOX V6/V8              -0.7009225 -10.294568  8.892723 -0.2068
+TESTEMUNHA  -  FOX V6/V8 + VT          1.4375000  -8.156146 11.031146  0.4241
+TESTEMUNHA  -  FOX VT                  1.1435200  -8.450126 10.737166  0.3374
+TESTEMUNHA  -  PRIORI XTRA V6/V8       0.8472225  -8.746423 10.440868  0.2500
+TESTEMUNHA  -  PRIORI XTRA V6/V8 + VT  1.2361125  -8.357533 10.829758  0.3647
+TESTEMUNHA  -  PRIORI XTRA VT          0.1944475  -9.399198  9.788093  0.0574
                                       p-value sig
 TESTEMUNHA  -  FOX V6/V8               0.9999  ns
 TESTEMUNHA  -  FOX V6/V8 + VT          0.9958  ns

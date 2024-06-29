@@ -1,0 +1,8 @@
+"0","dados <- dados |> "
+"0","  mutate(sev.med = rowMeans(across(starts_with('sev_f')))) |> "
+"0","  dplyr::select(- starts_with('sev_f')) |> "
+"0","  group_by(treat, block, assessment) |> "
+"0","  summarise(sev_med = mean(sev.med))"
+"1","[38;5;255m`summarise()` has grouped output by 'treat', 'block'. You can override using the `.groups` argument.[39m
+"
+"0","dados$sev_med <- round(dados$sev_med, 2)"

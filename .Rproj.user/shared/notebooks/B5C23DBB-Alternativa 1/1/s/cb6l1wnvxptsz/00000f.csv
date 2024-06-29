@@ -1,0 +1,4 @@
+"0","prod <- gsheet2tbl('https://docs.google.com/spreadsheets/d/18JYhRvnwob5L0kAOor9o22Y_AwLkD7XU/edit?gid=1793405925#gid=1793405925')"
+"0",""
+"0","prod <- prod |> "
+"0","  dplyr::select(treat, block, productivity)"

@@ -1,0 +1,5 @@
+"0","plot2 <- plot2 + "
+"0","  annotate(geom = 'text', x = 4, y = 1.72, label = '*', size = 7) +"
+"0","  annotate(geom = 'text', x = 4, y = 3.6, label = '*', size = 7)"
+"0",""
+"0","ggplotly(plot2)"

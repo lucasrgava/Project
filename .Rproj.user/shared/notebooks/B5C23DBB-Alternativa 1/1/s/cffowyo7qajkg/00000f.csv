@@ -1,0 +1,8 @@
+"0","m3 <- lm(productivity ~ treat + block, prod)"
+"0",""
+"0","check_heteroscedasticity(m3)"
+"1","[32mOK: Error variance appears to be homoscedastic (p = 0.516).
+[39m"
+"0","check_normality(m3)"
+"1","[32mOK: residuals appear as normally distributed (p = 0.197).
+[39m"

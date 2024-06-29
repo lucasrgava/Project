@@ -1,0 +1,13 @@
+"0","dados |> "
+"0","  group_by(treat, assessment) |> "
+"0","  summarise(med = mean(sev_med)) |> "
+"0","  ggplot(aes(x = assessment, y = med)) +"
+"0","  geom_jitter(data = dados, aes(y = sev_med), color = 'gray', alpha = 0.7, width = 0.1) +"
+"0","  geom_line(size = 0.5) +"
+"0","  geom_point(color = 'red') +"
+"0","  theme_clean() +"
+"0","  theme(text = element_text(size = 15), axis.title = element_text(size = 15)) +"
+"0","  facet_wrap(~treat) +"
+"0","  labs(x = 'Avaliações', y = 'Severidade média (%)', color = 'Tratamentos')"
+"1","[38;5;255m`summarise()` has grouped output by 'treat'. You can override using the `.groups` argument.[39m
+"

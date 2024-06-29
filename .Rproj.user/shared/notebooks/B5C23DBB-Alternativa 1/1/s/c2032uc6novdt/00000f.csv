@@ -1,0 +1,12 @@
+"0","plot2 <- dados |> "
+"0","  group_by(treat, assessment) |> "
+"0","  summarise(med = mean(sev_med)) |> "
+"0","  ggplot(aes(x = assessment, y = med, color = treat)) +"
+"0","  geom_point() + "
+"0","  geom_line(size = 1) +"
+"0","  theme(text = element_text(size = 15)) +"
+"0","  theme_classic() +"
+"0","  labs(x = 'Avaliações', y = 'Severidade média (%)', color = 'Tratamentos')"
+"1","[38;5;255m`summarise()` has grouped output by 'treat'. You can override using the `.groups` argument.[39m
+"
+"0","  plot2"
