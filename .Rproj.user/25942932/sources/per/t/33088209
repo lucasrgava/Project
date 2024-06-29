@@ -1,14 +1,14 @@
 {
-    "id": "A1E2DCCA",
-    "path": "~/GitHub/Project_FIP606/Alternativa 2.qmd",
-    "project_path": "Alternativa 2.qmd",
+    "id": "33088209",
+    "path": "~/GitHub/Project_FIP606/Alternativa 1.qmd",
+    "project_path": "Alternativa 1.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "30994861",
     "contents": "",
     "dirty": false,
-    "created": 1719620351508.0,
+    "created": 1719620345263.0,
     "source_on_save": false,
-    "relative_order": 5,
+    "relative_order": 4,
     "properties": {
         "rmdVisualMode": "true",
         "rmdVisualWrapConfigured": "true",
@@ -19,14 +19,14 @@
         "docOutlineVisible": "1",
         "cursorPosition": "0,0",
         "scrollLine": "0",
-        "docOutlineSize": "198"
+        "docOutlineSize": "263"
     },
     "folds": "",
-    "lastKnownWriteTime": 1719675497,
+    "lastKnownWriteTime": 1719675150,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1719675497641,
+    "last_content_update": 1719675150622,
     "read_only": false,
     "read_only_alternatives": []
 }
