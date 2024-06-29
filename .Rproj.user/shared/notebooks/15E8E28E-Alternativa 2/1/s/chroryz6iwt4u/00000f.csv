@@ -1,0 +1,8 @@
+"0","library(tidyverse)"
+"0","library(gsheet)"
+"0","library(epifitter)"
+"0","library(lme4)"
+"0","library(ExpDes.pt)"
+"0","library(agricolae)"
+"0","library(AgroR)"
+"0","library(performance)"

@@ -1,0 +1,39 @@
+"0","library(gsheet) # importação dos dados"
+"0","library(tidyverse) # manipulação dos dados"
+"0","library(ggthemes) # Temas gráficos"
+"0","library(epifitter) # utilizar a função AUDPC()"
+"0","library(performance) # este e demais pacotes destinados a análise "
+"0","library(ExpDes.pt) "
+"0","library(emmeans)"
+"0","library(multcomp)"
+"2","Carregando pacotes exigidos: mvtnorm
+"
+"2","Carregando pacotes exigidos: survival
+"
+"2","Carregando pacotes exigidos: TH.data
+"
+"2","Carregando pacotes exigidos: MASS
+"
+"2","
+Attaching package: ‘MASS’
+
+"
+"2","The following object is masked from ‘package:ExpDes.pt’:
+
+    ginv
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    select
+
+"
+"2","
+Attaching package: ‘TH.data’
+
+"
+"2","The following object is masked from ‘package:MASS’:
+
+    geyser
+
+"

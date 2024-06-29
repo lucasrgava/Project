@@ -1,0 +1,228 @@
+---
+title: "Abordagem como Fatorial duplo com tratamento adicional em DBC"
+author: "Lucas R. Gava, Iago Vieira"
+format: html
+editor: visual
+---
+
+# Pacotes
+
+Pcotes utilizados no decorrer do código.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(gsheet)
+library(epifitter)
+library(lme4)
+library(ExpDes.pt)
+library(agricolae)
+library(AgroR)
+library(performance)
+```
+
+# Importando os bancos de dados
+
+```{r}
+# Dados de produtividade
+dados <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1KPWFOqs_Cclj3VgiHPxP3zazOmucRVAc/edit?gid=836516162#gid=836516162')
+
+# Dados de severidade
+dados2 <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1KPWFOqs_Cclj3VgiHPxP3zazOmucRVAc/edit?gid=1484935950#gid=1484935950')
+```
+
+# Variáveis respostas
+
+## AACPD
+
+### Ajuste dos dados
+
+Como na parcela foi avaliada 3 folhas por planta de 3 plantas, tem-se 9 valores por observação. Nesse caso, antes de prosseguir, vamos resumir esses valores em um único valor de severidade média. Dessa forma, reduzindo nosso banco de dados de 336 linhas para 112. Isso representa, 7 tratamentos, 4 blocos e 4 momentos de avaliação.
+
+```{r message=FALSE, warning=FALSE}
+dados2 <- dados2 |> 
+  mutate(sev.med = rowMeans(across(starts_with('sev_f')))) |> 
+  dplyr::select(- c(9, 10, 11)) |> 
+  group_by(treat, block, assessment) |> 
+  summarise(sev.med = mean(sev.med))
+  
+dados2
+```
+
+Como nosso banco de dados (**dados2**), contêm os valores médios de severidade de cada tratamento, cada bloco e cada tempo de avaliação, é possível, utilizando a função `AUDPC()` do pacote **EPIFITTER**, calcular a área abaixo da curva de progresso da doença (AACPD).
+
+```{r message=FALSE, warning=FALSE}
+aacpd1 <- dados2 |> 
+  group_by(treat, block) |> 
+  summarise(aacpd = AUDPC(assessment, sev.med))
+
+aacpd <- aacpd1 |> 
+  separate(col = treat, into = c('Fator1', 'Fator2'), sep = ' ')
+
+aacpd2 <- aacpd |> 
+ mutate(Fator2= ifelse(Fator1 == 'TESTEMUNHA', 0, Fator2))
+
+
+aacpd2
+```
+
+### Premissas
+
+P-valores \> 0,05! Sinal verde para prosseguir com a análise paramétrica.
+
+```{r}
+m1 <- lm(aacpd ~ Fator1*Fator2 + block, data = aacpd2)
+check_normality(m1)
+check_heteroscedasticity(m1)
+```
+
+### Anova e teste de Tukey
+
+A função que iremos utilizar a seguir se chama `fat2.ad.dbc()`, do pacote **ExpDes.pt**. Essa função é dedicada a análise de dados onde o delinemaento adotado foi em blocos ao acaso em esquema fatorial 3x2 + 1. Para saber mais sobre a função e o sobre o pacote, execute no console os comandos: `?fat2.ad.dbc`, para ajuda da função e `??ExpDes.pt`, para informações sobre o pacote.
+
+Antes de executar a função, devemos organizar os dados separando em dois dataframes. Os dados referente ao fatorial e os dados referente ao tratamento adicional. Em seguida, podemos preencher os argumentos da função como no código.
+
+```{r}
+# Estruturando banco de dados
+aacpd <- aacpd |> 
+  mutate(treat.ad = ifelse(Fator1 == 'TESTEMUNHA', Fator1, NA)) |> 
+  mutate(Fator1 = ifelse(Fator1 == 'TESTEMUNHA', NA, Fator1))
+  
+fatorial <- aacpd |> 
+  filter(!is.na(Fator1))
+
+treat.ad <- aacpd |> 
+  filter(treat.ad == 'TESTEMUNHA')
+
+# Rodando od testes
+
+fat2.ad.dbc(fator1 = fatorial$Fator1, fator2 = fatorial$Fator2, bloco = fatorial$block, resp = fatorial$aacpd, respAd = treat.ad$aacpd, fac.names = c('Fungicidas', 'Estádios'))
+```
+
+Como resultado da ANOVA, identificamos que existe diferença significativa entre os níveis do fator Estádio de aplicação e tratamento adicional versus fatorial. Não houve diferença significativa entre os níveis do fator Fungicidas.
+
+O teste de Tukey, aplicado sobre os níveis do fator estádio, indicou que realizando a aplicação dos fungicidas nos estádio V6/V8 e em VT é melhor do aplicar em V6/V8 ou em VT.
+
+O teste anterior mostrou que existe diferença entre o fatorial versus o tratamento adicional. No entanto, ele não discriminou o tratamento adicional versus a combinação dos níveis dos dois fatores. Dessa forma, adotamos o teste de Dunnett para conseguir identificar quais foram os tratamentos estatisticamente diferentes da testemunha.
+
+### Teste de Dunnett
+
+O teste de Dunnet é um teste adotado quando se deseja comparar as médias dos tratamentos contra a média de um tratamento de interesse. No nosso caso, confrontamos contra o tratamento testemunha.
+
+```{r}
+dunnett(trat = aacpd1$treat, resp = aacpd1$aacpd, control = 'TESTEMUNHA', model = 'DBC', block = aacpd1$block)
+```
+
+Percebemos que exceto os tratamentos PRIORI XTRA VT e FOX VT, todos os tratamentos foram significativos contra a testemunha sem aplicação.
+
+## Y máx
+
+A partir de agora, o processo é semelhante para as demais variáveis.
+
+### Ajuste dos dados
+
+```{r message=FALSE, warning=FALSE}
+y.max1 <- dados2 |> 
+  filter(assessment == 4)
+y.max1$sev.med <- round(y.max1$sev.med, 2)
+
+y.max <- y.max1 |> 
+  separate(col = treat, into = c('Fator1', 'Fator2'), sep = ' ')
+y.max <- y.max |> 
+  mutate(treat.ad = ifelse(Fator1 == 'TESTEMUNHA', Fator1, NA))
+
+y.max <- y.max |> 
+  mutate(Fator1 = ifelse(Fator1 == 'TESTEMUNHA', NA, Fator1))
+```
+
+### Premissas
+
+Premissas atendidas!
+
+```{r}
+y.max.pre <- y.max |> 
+  dplyr::select(-treat.ad, -assessment) |> 
+  mutate(Fator1 = ifelse(is.na(Fator1), 'TESTEMUNHA', Fator1)) |> 
+  mutate(Fator2 = ifelse(is.na(Fator2), 0, Fator2))
+
+m2 <- lm(sev.med ~ Fator1*Fator2 + block, y.max.pre)
+
+check_normality(m2)
+check_heteroscedasticity(m2)
+  
+```
+
+### Anova e teste de Tukey
+
+```{r}
+fator.y <- y.max |> 
+  filter(!-is.na(Fator1))
+  
+treat.ad.y <- y.max |> 
+  filter(!-is.na(treat.ad))
+
+fat2.ad.dbc(fator1 = fator.y$Fator1, fator2 = fator.y$Fator2, bloco = fator.y$block, resp = fator.y$sev.med, respAd = treat.ad.y$sev.med, fac.names = c('Fungicidas', 'Estádios'))
+```
+
+Como resultado da ANOVA, identificamos diferença significativa também entre os níveis do fator Estádio e do tratamento adicional versus o fatorial. Não houve diferença significativa entre os níveis do fator Fungicida sobre a variável de intensidade máxima (Ymax).
+
+O teste de Tukey indicou que entre os níveis do fator Estádio, as aplicaçãoes em V6/V8 e em V6/V8 + VT é melhor do que fazer uma única aplicação em VT.
+
+### Teste de Dunnett
+
+```{r}
+dunnett(trat = y.max1$treat, resp = y.max1$sev.med, control = 'TESTEMUNHA', model = 'DBC', block = y.max1$block)
+```
+
+Como resultado do teste de Dunnett, os tratamentos PRIORI XTRA V6/V8+VT, FOX V6/V8+VT e FOX V6/V8 apresentaram diferença significativa da testemunha.
+
+## PRODUTIVIDADE
+
+### Ajuste dos dados
+
+```{r}
+produtividade <- dados |> 
+  dplyr::select(Fator1, Fator2, treat.ad, block, productivity)
+
+trat.ad <- produtividade |> 
+  filter(treat.ad == 'TESTEMUNHA') |> 
+  dplyr::select(productivity)
+
+fatorial <- produtividade |> 
+  filter(!is.na(Fator1))
+```
+
+### Premissas
+
+Premissas atendidas!
+
+```{r}
+prod.pre <- produtividade |> 
+  dplyr::select(-treat.ad) |> 
+  mutate(Fator1 = ifelse(is.na(Fator1), 'TESTEMUNHA', Fator1)) |> 
+  mutate(Fator2 = ifelse(is.na(Fator2), 0, Fator2))
+
+m3 <- lm(productivity ~ Fator1*Fator2 + block, prod.pre)
+
+check_normality(m3)
+check_heteroscedasticity(m3)
+```
+
+### Anova e teste de Tukey
+
+```{r}
+fat2.ad.dbc(fator1 = fatorial$Fator1, fator2 = fatorial$Fator2, bloco = fatorial$block, resp = fatorial$productivity, respAd = trat.ad$productivity, fac.names = c('Fungicidas', 'Estádios'))
+```
+
+Sobre a variável produtividade, não houve diferença significativa para os fatores, para a interação e nem para o fatorial versus tratamento adicional. De maneira geral, não existe ganhos em produtividade quando se adota os tratamentos. A análise pode ser finalizada aqui para esta variável. Entretando para visualizar isso graficamente vamos realizar o teste de Dunnett.
+
+### Teste de Dunnett
+
+```{r}
+produtividade2 <- produtividade |> 
+  mutate(Fator1 = ifelse(is.na(Fator1), 'TESTEMUNHA', Fator1 )) |> 
+  unite(col = treat, Fator1, Fator2, sep = ' ', na.rm = TRUE)
+
+dunnett(trat = produtividade2$treat, resp = produtividade2$productivity, control = 'TESTEMUNHA', model = 'DBC', block = produtividade2$block)
+```
+
+Como já era sabido. Não há diferença da combinação dos níveis dos dois fatores versus a testemunha.
