@@ -7,7 +7,7 @@ editor: visual
 
 # Pacotes
 
-Pcotes utilizados no decorrer do código.
+Pacotes utilizados no decorrer do código.
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -79,7 +79,7 @@ check_heteroscedasticity(m1)
 
 A função que iremos utilizar a seguir se chama `fat2.ad.dbc()`, do pacote **ExpDes.pt**. Essa função é dedicada a análise de dados onde o delinemaento adotado foi em blocos ao acaso em esquema fatorial 3x2 + 1. Para saber mais sobre a função e o sobre o pacote, execute no console os comandos: `?fat2.ad.dbc`, para ajuda da função e `??ExpDes.pt`, para informações sobre o pacote.
 
-Antes de executar a função, devemos organizar os dados separando em dois dataframes. Os dados referente ao fatorial e os dados referente ao tratamento adicional. Em seguida, podemos preencher os argumentos da função como no código.
+Antes de executar a função, devemos organizar os dados separando em dois dataframes: os dados referentes ao fatorial e os dados referente ao tratamento adicional. Em seguida, podemos preencher os argumentos da função como no código.
 
 ```{r}
 # Estruturando banco de dados

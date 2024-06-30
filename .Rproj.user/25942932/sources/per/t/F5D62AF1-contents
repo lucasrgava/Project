@@ -161,7 +161,7 @@ plot4
 
 ### Testando as premissas
 
-Antes de seguir com a análise paramétrica, é preciso testar as premissas de homogeneidade de variâncias e normalidade dos resíduos. As funções `check_heteroscedasticity()` e `check_normality()` do pacote **Performance**, são utilizadas para verificar isso. De modo geral, a hipótese de nulidade das premissas é que as variâncias são homogêneas e os resíduos normais. Nesse caso, esperamos que o resultado do teste **não** seja significativo, ou seja, p-valor \> 0,05. Após rodar o código temos como resultado p-valores \> 0,05, indicando a posiibilidade de continuar com a análise paramétrica.
+Antes de seguir com a análise paramétrica, é preciso testar as premissas de homogeneidade de variâncias e normalidade dos resíduos. As funções `check_heteroscedasticity()` e `check_normality()` do pacote **Performance**, são utilizadas para verificar isso. De modo geral, a hipótese de nulidade das premissas é que as variâncias são homogêneas e os resíduos normais. Nesse caso, esperamos que o resultado do teste **não** seja significativo, ou seja, p-valor \> 0,05. Após rodar o código temos como resultado p-valores \> 0,05, indicando a possibilidade de continuar com a análise paramétrica.
 
 ```{r}
 m1 <- lm(aacpd ~ treat + block, aacpd)
@@ -180,11 +180,11 @@ anova(m1)
 
 ### Teste de Tukey
 
-O teste de Tukey é um teste de comparações múltiplas muito utilizado em experimentos agrícolas. Ele realiza as comparações múltiplas entre todos os tratamentos e distingue-os. Possibilitando identificar quais foram os melhores e piores tratamentos.
+O teste de Tukey é um teste de comparações múltiplas muito utilizado em experimentos agrícolas. Ele realiza as comparações múltiplas entre todos os tratamentos e distingue-os, possibilitando identificar quais foram os melhores e piores tratamentos.
 
 Como resultado do teste abaixo, observamos a formação de 4 grupos com bantante anbiguidade (sobreposição de grupos) entre as médias dos tratamentos. Como a variável testada é referente a área abaixo da curva de progresso, queremos identificar quais foram os tratamentos que apresentaram menores valores. Pois, são estes tratamentos que apresentaram um melhor controle da epidemia. A interpretação é simples, médias dos tratamentos seguidas pela mesma letra não se diferem entre si, pelo teste de Tukey, ao nível de 5% de probabilidade. Dessa forma, verificamos que os fungicidas **PRIORI XTRA** e **FOX** aplicados nos estádios **V6/V8 + VT** e em **V6/V8** se diferiram da **TESTEMUNHA**, mas não entre si. Quando os fungicidas foram aplicados somente no estádio **VT** não teve difereça da **TESTEMUNHA**.
 
-Gerando uma informação mais prática quanto ao resultado, podemos concluir que, aplicando qualquer um dos fungicidas, quando o milho ainda está no seu estádio vegetativo (**V6/V8**), é a melhor alternativa para manejo de manchas foliares na cultura. Uma vez que, realizando duas aplicações nos estádios **V6/V8** e **VT** seria desperdício de recursos e contaminação descecessária do meio ambiente.
+Gerando uma informação mais prática quanto ao resultado, podemos concluir que, aplicando qualquer um dos fungicidas, quando o milho ainda está no seu estádio vegetativo (**V6/V8**), é a melhor alternativa para manejo de manchas foliares na cultura. Uma vez que, realizando duas aplicações nos estádios **V6/V8** e **VT** seria desperdício de recursos e contaminação desnecessária do meio ambiente.
 
 ```{r}
 cld(emmeans(m1, ~ treat), Letters = letters)
@@ -236,7 +236,7 @@ check_normality(m3)
 
 ### ANOVA
 
-O p-valor do teste F foi maior que 0,05. Logo, conclui-se que não existe diferença entre os tratamentos quando se analisa a varial **PRODUTIVIDADE**.
+O p-valor do teste F foi maior que 0,05. Logo, conclui-se que não existe diferença entre os tratamentos quando se analisa a variável **PRODUTIVIDADE**.
 
 De maneira prática, podemos dizer que se o objetivo do ensaio foi controlar manchas foliares na cultura do milho e não houve diferença significativa entre as médias de produtividade, não realizar a aplicação de fungicida seria a melhor opção.
 
