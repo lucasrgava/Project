@@ -4,7 +4,5 @@
 "0","library(plotly) # gráficos dinâmicos"
 "0","library(epifitter) # utilizar a função AUDPC()"
 "0","library(performance) # este e demais pacotes destinados a análise "
-"0","library(ExpDes.pt) "
 "0","library(emmeans)"
 "0","library(multcomp)"
-"0",""

@@ -50,7 +50,7 @@ plot1 <- dados |>
   geom_jitter(width = 0.2, size = 2.5, alpha = 0.7) +
   labs(x = ' ', y = 'Severidade (%)', color = ' ') +
   theme_classic() +
-  theme(axis.text.x = element_blank(), text = element_text(size = 15)) + 
+  theme(text = element_text(size = 15), legend.position = 'none', axis.text.x = element_text(angle = 45, hjust = 1)) + 
   ylim(0, 100) +
   geom_hline(yintercept = max(dados$sev_med), linetype = 3) +
   annotate(geom = 'text', y = 15, x = 4, label = '12%')
@@ -162,7 +162,7 @@ plot4
 
 ## Variável AACPD
 
-### Testando as premissas
+### ANOVA e testando as premissas
 
 Antes de seguir com a análise paramétrica, é preciso testar as premissas de homogeneidade de variâncias e normalidade dos resíduos. As funções `check_heteroscedasticity()` e `check_normality()` do pacote **Performance**, são utilizadas para verificar isso. De modo geral, a hipótese de nulidade das premissas é que as variâncias são homogêneas e os resíduos normais. Nesse caso, esperamos que o resultado do teste **não** seja significativo, ou seja, p-valor \> 0,05. Após rodar o código temos como resultado p-valores \> 0,05, indicando a possibilidade de continuar com a análise paramétrica.
 
@@ -172,8 +172,6 @@ m1 <- lm(aacpd ~ treat + block, aacpd)
 check_heteroscedasticity(m1)
 check_normality(m1)
 ```
-
-### ANOVA
 
 A ANOVA indicou que existe pelo menos um par de tratamentos que se diferem entre si pelo teste F ao nível de 5% de probabilidade. Seguimos agora para o teste de comparações múltiplas para distinguir quais são os tratamentos que se diferem.
 
@@ -195,7 +193,7 @@ cld(emmeans(m1, ~ treat), Letters = letters)
 
 ## Variável Y máx
 
-### Testando premissas
+### ANOVA e testando premissas
 
 Agora a interpretação fica mais fácil. O resultado de p-valor \> 0,05 indica que podemos seguir com as análises.
 
@@ -205,8 +203,6 @@ m2 <- lm(sev_med ~ treat + block, y.max)
 check_heteroscedasticity(m2)
 check_normality(m2)
 ```
-
-### ANOVA
 
 A ANOVA indicou que há diferença entre os tratamentos.
 
@@ -224,7 +220,7 @@ cld(emmeans(m2, ~ treat), Letters = letters)
 
 ## Variável de PRODUTIVIDADE
 
-### Testando premissas
+### ANOVA e testando premissas
 
 Premissas atendidas!
 
@@ -236,8 +232,6 @@ m3 <- lm(productivity ~ treat + block, prod)
 check_heteroscedasticity(m3)
 check_normality(m3)
 ```
-
-### ANOVA
 
 O p-valor do teste F foi maior que 0,05. Logo, conclui-se que não existe diferença entre os tratamentos quando se analisa a variável **PRODUTIVIDADE**.
 

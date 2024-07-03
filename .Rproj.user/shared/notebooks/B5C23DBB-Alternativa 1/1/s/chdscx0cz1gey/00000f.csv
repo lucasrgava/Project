@@ -1,0 +1,7 @@
+"0","plot3 <- plot3 +"
+"0","  annotate(geom = 'text', x = 5, y = 1.7, label = '*', size = 7) +"
+"0","  annotate(geom = 'text', x = 2, y = 3, label = '*', size = 7) +"
+"0","  annotate(geom = 'text', x = 4, y = 3.8, label = '*', size = 7) +"
+"0","  annotate(geom = 'text', x = 1, y = 4, label = '*', size = 7)"
+"0",""
+"0","ggplotly(plot3)"
