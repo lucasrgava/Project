@@ -183,7 +183,7 @@ anova(m1)
 
 ### Teste de comparações múltiplas
 
-O teste de Tukey é um teste de comparações múltiplas muito utilizado em experimentos agrícolas. Ele realiza as comparações múltiplas entre todos os tratamentos e distingue-os, possibilitando identificar quais foram os melhores e piores tratamentos. No entanto, para esta análise, não iremos adortar o teste de Tukey, mas sim, o teste de Estimativa das Médias Marginais (EMMs). Para isso utilizaremos a função `emmeans()` do pacore **emmeans**.
+O teste de Tukey é um teste de comparações múltiplas muito utilizado em experimentos agrícolas. Ele realiza as comparações múltiplas entre todos os tratamentos e distingue-os, possibilitando identificar quais foram os melhores e piores tratamentos.
 
 Como resultado do teste abaixo, observamos a formação de 4 grupos com bantante anbiguidade (sobreposição de grupos) entre as médias dos tratamentos. Como a variável testada é referente a área abaixo da curva de progresso, queremos identificar quais foram os tratamentos que apresentaram menores valores. Pois, são estes tratamentos que apresentaram um melhor controle da epidemia. A interpretação é simples, médias dos tratamentos seguidas pela mesma letra não se diferem entre si, pelo teste de Tukey, ao nível de 5% de probabilidade. Dessa forma, verificamos que os fungicidas **PRIORI XTRA** e **FOX** aplicados nos estádios **V6/V8 + VT** e em **V6/V8** se diferiram da **TESTEMUNHA**, mas não entre si. Quando os fungicidas foram aplicados somente no estádio **VT** não teve difereça da **TESTEMUNHA**.
 
