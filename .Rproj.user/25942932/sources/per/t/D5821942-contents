@@ -45,7 +45,7 @@ dados2 <- dados2 |>
   group_by(treat, block, assessment) |> 
   summarise(sev.med = mean(sev.med))
   
-dados2
+knitr::kable(dados2)
 ```
 
 Como nosso banco de dados (**dados2**), contêm os valores médios de severidade de cada tratamento, cada bloco e cada tempo de avaliação, é possível, utilizando a função `AUDPC()` do pacote **EPIFITTER**, calcular a área abaixo da curva de progresso da doença (AACPD).
@@ -62,7 +62,7 @@ aacpd2 <- aacpd |>
  mutate(Fator2= ifelse(Fator1 == 'TESTEMUNHA', 0, Fator2))
 
 
-aacpd2
+knitr::kable(aacpd2)
 ```
 
 ### Premissas
@@ -132,6 +132,7 @@ y.max <- y.max |>
 
 y.max <- y.max |> 
   mutate(Fator1 = ifelse(Fator1 == 'TESTEMUNHA', NA, Fator1))
+
 ```
 
 ### Premissas
@@ -143,6 +144,8 @@ y.max.pre <- y.max |>
   dplyr::select(-treat.ad, -assessment) |> 
   mutate(Fator1 = ifelse(is.na(Fator1), 'TESTEMUNHA', Fator1)) |> 
   mutate(Fator2 = ifelse(is.na(Fator2), 0, Fator2))
+
+knitr::kable(y.max.pre)
 
 m2 <- lm(sev.med ~ Fator1*Fator2 + block, y.max.pre)
 
@@ -201,6 +204,7 @@ prod.pre <- produtividade |>
   mutate(Fator1 = ifelse(is.na(Fator1), 'TESTEMUNHA', Fator1)) |> 
   mutate(Fator2 = ifelse(is.na(Fator2), 0, Fator2))
 
+knitr::kable(prod.pre)
 m3 <- lm(productivity ~ Fator1*Fator2 + block, prod.pre)
 
 check_normality(m3)

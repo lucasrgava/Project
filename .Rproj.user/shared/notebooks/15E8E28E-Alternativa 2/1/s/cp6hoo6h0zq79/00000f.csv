@@ -1,0 +1,22 @@
+"0","fat2.ad.dbc(fator1 = fatorial$Fator1, fator2 = fatorial$Fator2, bloco = fatorial$block, resp = fatorial$productivity, respAd = trat.ad$productivity, fac.names = c('Fungicidas', 'Estádios'))"
+"1","------------------------------------------------------------------------
+Legenda:
+"
+"1","FATOR 1: "
+"1"," "
+"1","Fungicidas"
+"1"," "
+"1","
+"
+"1","FATOR 2: "
+"1"," "
+"1","Estádios"
+"1"," "
+"1","
+------------------------------------------------------------------------
+
+"
+"1","------------------------------------------------------------------------
+Quadro da analise de variancia
+------------------------------------------------------------------------
+"

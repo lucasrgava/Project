@@ -1,0 +1,10 @@
+"0",""
+"0","m2 <- lm(sev.med ~ Fator1*Fator2 + block, y.max.pre)"
+"0",""
+"0","check_normality(m2)"
+"1","[32mOK: residuals appear as normally distributed (p = 0.788).
+[39m"
+"0","check_heteroscedasticity(m2)"
+"1","[32mOK: Error variance appears to be homoscedastic (p = 0.377).
+[39m"
+"0","  "

@@ -1,0 +1,5 @@
+"0","produtividade2 <- produtividade |> "
+"0","  mutate(Fator1 = ifelse(is.na(Fator1), 'TESTEMUNHA', Fator1 )) |> "
+"0","  unite(col = treat, Fator1, Fator2, sep = ' ', na.rm = TRUE)"
+"0",""
+"0","dunnett(trat = produtividade2$treat, resp = produtividade2$productivity, control = 'TESTEMUNHA', model = 'DBC', block = produtividade2$block)"

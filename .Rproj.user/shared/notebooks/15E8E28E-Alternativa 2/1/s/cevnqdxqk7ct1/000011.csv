@@ -1,0 +1,6 @@
+"0","prod.pre <- produtividade |> "
+"0","  dplyr::select(-treat.ad) |> "
+"0","  mutate(Fator1 = ifelse(is.na(Fator1), 'TESTEMUNHA', Fator1)) |> "
+"0","  mutate(Fator2 = ifelse(is.na(Fator2), 0, Fator2))"
+"0",""
+"0","knitr::kable(prod.pre)"

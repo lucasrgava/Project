@@ -292,54 +292,889 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(treat, block, assessment) <span class="sc">|&gt;</span> </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sev.med =</span> <span class="fu">mean</span>(sev.med))</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>dados2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 112 × 4
-# Groups:   treat, block [28]
-   treat     block assessment sev.med
-   &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;
- 1 FOX V6/V8     1          1  0.0444
- 2 FOX V6/V8     1          2  0.167 
- 3 FOX V6/V8     1          3  1.84  
- 4 FOX V6/V8     1          4  7.24  
- 5 FOX V6/V8     2          1  0.0222
- 6 FOX V6/V8     2          2  0.111 
- 7 FOX V6/V8     2          3  2.13  
- 8 FOX V6/V8     2          4  1.7   
- 9 FOX V6/V8     3          1  0.0556
-10 FOX V6/V8     3          2  0.0556
-# ℹ 102 more rows</code></pre>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dados2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">treat</th>
+<th style="text-align: right;">block</th>
+<th style="text-align: right;">assessment</th>
+<th style="text-align: right;">sev.med</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0444444</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1666667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.8444444</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7.2444444</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0222222</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1111111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.1333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.7000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0555556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0555556</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.6666667</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.6888889</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2777778</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1333333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.4333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.2222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.1666667</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0111111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.6555556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.1666667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.4111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.3666667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.3888889</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.8111111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0222222</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0777778</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.4000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.6666667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0777778</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.6555556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.3333333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.2000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.4888889</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.0222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.7000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.4222222</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">11.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1111111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.9555556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">12.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0111111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.5333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1333333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.7555556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.8888889</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.5888889</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6.2222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.1666667</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.2333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.3555556</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0888889</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.4111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.3555556</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0444444</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0555556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.1222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0666667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.3111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.8888889</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.1777778</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.1222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.3000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.0333333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0777778</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.3666667</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7.6111111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.4000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.1555556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6.3444444</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0888889</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.5222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.3888889</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8.4444444</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0444444</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.6777778</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10.3888889</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.1222222</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.7222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.1666667</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.4333333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.1444444</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10.6666667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.2555556</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.7888889</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">9.3666667</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>Como nosso banco de dados (<strong>dados2</strong>), contêm os valores médios de severidade de cada tratamento, cada bloco e cada tempo de avaliação, é possível, utilizando a função <code>AUDPC()</code> do pacote <strong>EPIFITTER</strong>, calcular a área abaixo da curva de progresso da doença (AACPD).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>aacpd1 <span class="ot">&lt;-</span> dados2 <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(treat, block) <span class="sc">|&gt;</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">aacpd =</span> <span class="fu">AUDPC</span>(assessment, sev.med))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>aacpd <span class="ot">&lt;-</span> aacpd1 <span class="sc">|&gt;</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> treat, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">'Fator1'</span>, <span class="st">'Fator2'</span>), <span class="at">sep =</span> <span class="st">' '</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>aacpd2 <span class="ot">&lt;-</span> aacpd <span class="sc">|&gt;</span> </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">mutate</span>(<span class="at">Fator2=</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, <span class="dv">0</span>, Fator2))</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>aacpd2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 28 × 4
-   Fator1 Fator2   block aacpd
-   &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
- 1 FOX    V6/V8        1  5.66
- 2 FOX    V6/V8        2  3.11
- 3 FOX    V6/V8        3  2.59
- 4 FOX    V6/V8        4  2.82
- 5 FOX    V6/V8+VT     1  1.83
- 6 FOX    V6/V8+VT     2  2.23
- 7 FOX    V6/V8+VT     3  2.82
- 8 FOX    V6/V8+VT     4  3.32
- 9 FOX    VT           1  3.36
-10 FOX    VT           2  3.2 
-# ℹ 18 more rows</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>aacpd1 <span class="ot">&lt;-</span> dados2 <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(treat, block) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">aacpd =</span> <span class="fu">AUDPC</span>(assessment, sev.med))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>aacpd <span class="ot">&lt;-</span> aacpd1 <span class="sc">|&gt;</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> treat, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">'Fator1'</span>, <span class="st">'Fator2'</span>), <span class="at">sep =</span> <span class="st">' '</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>aacpd2 <span class="ot">&lt;-</span> aacpd <span class="sc">|&gt;</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">mutate</span>(<span class="at">Fator2=</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, <span class="dv">0</span>, Fator2))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(aacpd2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Fator1</th>
+<th style="text-align: left;">Fator2</th>
+<th style="text-align: right;">block</th>
+<th style="text-align: right;">aacpd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.6555556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.1055556</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.5944444</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.8166667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.8333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.2333333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.8166667</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.3222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.3611111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.2000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7.6222222</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7.0666667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.5444444</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.8333333</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.8055556</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.9944444</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.6333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.1611111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.3222222</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.2388889</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4.0388889</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4.2500000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.7333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.1777778</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6.1333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.1222222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6.9944444</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6.7333333</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
@@ -347,12 +1182,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="premissas">Premissas</h3>
 <p>P-valores &gt; 0,05! Sinal verde para prosseguir com a análise paramétrica.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(aacpd <span class="sc">~</span> Fator1<span class="sc">*</span>Fator2 <span class="sc">+</span> block, <span class="at">data =</span> aacpd2)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(aacpd <span class="sc">~</span> Fator1<span class="sc">*</span>Fator2 <span class="sc">+</span> block, <span class="at">data =</span> aacpd2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>OK: residuals appear as normally distributed (p = 0.335).</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>OK: Error variance appears to be homoscedastic (p = 0.336).</code></pre>
 </div>
@@ -363,20 +1198,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A função que iremos utilizar a seguir se chama <code>fat2.ad.dbc()</code>, do pacote <strong>ExpDes.pt</strong>. Essa função é dedicada a análise de dados onde o delinemaento adotado foi em blocos ao acaso em esquema fatorial 3x2 + 1. Para saber mais sobre a função e o sobre o pacote, execute no console os comandos: <code>?fat2.ad.dbc</code>, para ajuda da função e <code>??ExpDes.pt</code>, para informações sobre o pacote.</p>
 <p>Antes de executar a função, devemos organizar os dados separando em dois dataframes: os dados referentes ao fatorial e os dados referente ao tratamento adicional. Em seguida, podemos preencher os argumentos da função como no código.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estruturando banco de dados</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>aacpd <span class="ot">&lt;-</span> aacpd <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treat.ad =</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, Fator1, <span class="cn">NA</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator1 =</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, <span class="cn">NA</span>, Fator1))</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>fatorial <span class="ot">&lt;-</span> aacpd <span class="sc">|&gt;</span> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Fator1))</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>treat.ad <span class="ot">&lt;-</span> aacpd <span class="sc">|&gt;</span> </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(treat.ad <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Rodando od testes</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">fat2.ad.dbc</span>(<span class="at">fator1 =</span> fatorial<span class="sc">$</span>Fator1, <span class="at">fator2 =</span> fatorial<span class="sc">$</span>Fator2, <span class="at">bloco =</span> fatorial<span class="sc">$</span>block, <span class="at">resp =</span> fatorial<span class="sc">$</span>aacpd, <span class="at">respAd =</span> treat.ad<span class="sc">$</span>aacpd, <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">'Fungicidas'</span>, <span class="st">'Estádios'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estruturando banco de dados</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>aacpd <span class="ot">&lt;-</span> aacpd <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treat.ad =</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, Fator1, <span class="cn">NA</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator1 =</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, <span class="cn">NA</span>, Fator1))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fatorial <span class="ot">&lt;-</span> aacpd <span class="sc">|&gt;</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Fator1))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>treat.ad <span class="ot">&lt;-</span> aacpd <span class="sc">|&gt;</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(treat.ad <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Rodando od testes</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">fat2.ad.dbc</span>(<span class="at">fator1 =</span> fatorial<span class="sc">$</span>Fator1, <span class="at">fator2 =</span> fatorial<span class="sc">$</span>Fator2, <span class="at">bloco =</span> fatorial<span class="sc">$</span>block, <span class="at">resp =</span> fatorial<span class="sc">$</span>aacpd, <span class="at">respAd =</span> treat.ad<span class="sc">$</span>aacpd, <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">'Fungicidas'</span>, <span class="st">'Estádios'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
@@ -438,22 +1273,22 @@ a    V6/V8   3.41875
 <h3 class="anchored" data-anchor-id="teste-de-dunnett">Teste de Dunnett</h3>
 <p>O teste de Dunnet é um teste adotado quando se deseja comparar as médias dos tratamentos contra a média de um tratamento de interesse. No nosso caso, confrontamos contra o tratamento testemunha.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnett</span>(<span class="at">trat =</span> aacpd1<span class="sc">$</span>treat, <span class="at">resp =</span> aacpd1<span class="sc">$</span>aacpd, <span class="at">control =</span> <span class="st">'TESTEMUNHA'</span>, <span class="at">model =</span> <span class="st">'DBC'</span>, <span class="at">block =</span> aacpd1<span class="sc">$</span>block)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnett</span>(<span class="at">trat =</span> aacpd1<span class="sc">$</span>treat, <span class="at">resp =</span> aacpd1<span class="sc">$</span>aacpd, <span class="at">control =</span> <span class="st">'TESTEMUNHA'</span>, <span class="at">model =</span> <span class="st">'DBC'</span>, <span class="at">block =</span> aacpd1<span class="sc">$</span>block)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                     Estimate    IC-lwr     IC-upr t value
-TESTEMUNHA  -  FOX V6/V8           -2.7027778 -4.968513 -0.4370426 -3.3739
-TESTEMUNHA  -  FOX V6/V8+VT        -3.6944444 -5.960180 -1.4287093 -4.6118
-TESTEMUNHA  -  FOX VT              -0.9333333 -3.199068  1.3324018 -1.1651
-TESTEMUNHA  -  PRIORIXTRA V6/V8    -2.9513889 -5.217124 -0.6856537 -3.6842
-TESTEMUNHA  -  PRIORIXTRA V6/V8+VT -4.9069444 -7.172680 -2.6412093 -6.1254
-TESTEMUNHA  -  PRIORIXTRA VT       -1.9458333 -4.211568  0.3199018 -2.4290
+TESTEMUNHA  -  FOX V6/V8           -2.7027778 -4.971385 -0.4341710 -3.3739
+TESTEMUNHA  -  FOX V6/V8+VT        -3.6944444 -5.963051 -1.4258377 -4.6118
+TESTEMUNHA  -  FOX VT              -0.9333333 -3.201940  1.3352734 -1.1651
+TESTEMUNHA  -  PRIORIXTRA V6/V8    -2.9513889 -5.219996 -0.6827822 -3.6842
+TESTEMUNHA  -  PRIORIXTRA V6/V8+VT -4.9069444 -7.175551 -2.6383377 -6.1254
+TESTEMUNHA  -  PRIORIXTRA VT       -1.9458333 -4.214440  0.3227734 -2.4290
                                    p-value sig
-TESTEMUNHA  -  FOX V6/V8            0.0163   *
-TESTEMUNHA  -  FOX V6/V8+VT         0.0013   *
+TESTEMUNHA  -  FOX V6/V8            0.0162   *
+TESTEMUNHA  -  FOX V6/V8+VT         0.0011   *
 TESTEMUNHA  -  FOX VT               0.7139  ns
-TESTEMUNHA  -  PRIORIXTRA V6/V8     0.0082   *
-TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  0.0000   *
-TESTEMUNHA  -  PRIORIXTRA VT        0.1090  ns</code></pre>
+TESTEMUNHA  -  PRIORIXTRA V6/V8     0.0086   *
+TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  0.0001   *
+TESTEMUNHA  -  PRIORIXTRA VT        0.1089  ns</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -472,35 +1307,218 @@ TESTEMUNHA  -  PRIORIXTRA VT        0.1090  ns</code></pre>
 <section id="ajuste-dos-dados-1" class="level3">
 <h3 class="anchored" data-anchor-id="ajuste-dos-dados-1">Ajuste dos dados</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>y.max1 <span class="ot">&lt;-</span> dados2 <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(assessment <span class="sc">==</span> <span class="dv">4</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>y.max1<span class="sc">$</span>sev.med <span class="ot">&lt;-</span> <span class="fu">round</span>(y.max1<span class="sc">$</span>sev.med, <span class="dv">2</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>y.max <span class="ot">&lt;-</span> y.max1 <span class="sc">|&gt;</span> </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> treat, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">'Fator1'</span>, <span class="st">'Fator2'</span>), <span class="at">sep =</span> <span class="st">' '</span>)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>y.max <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treat.ad =</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, Fator1, <span class="cn">NA</span>))</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>y.max <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator1 =</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, <span class="cn">NA</span>, Fator1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y.max1 <span class="ot">&lt;-</span> dados2 <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(assessment <span class="sc">==</span> <span class="dv">4</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>y.max1<span class="sc">$</span>sev.med <span class="ot">&lt;-</span> <span class="fu">round</span>(y.max1<span class="sc">$</span>sev.med, <span class="dv">2</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>y.max <span class="ot">&lt;-</span> y.max1 <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> treat, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">'Fator1'</span>, <span class="st">'Fator2'</span>), <span class="at">sep =</span> <span class="st">' '</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>y.max <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treat.ad =</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, Fator1, <span class="cn">NA</span>))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>y.max <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator1 =</span> <span class="fu">ifelse</span>(Fator1 <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>, <span class="cn">NA</span>, Fator1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="premissas-1" class="level3">
 <h3 class="anchored" data-anchor-id="premissas-1">Premissas</h3>
 <p>Premissas atendidas!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>y.max.pre <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>treat.ad, <span class="sc">-</span>assessment) <span class="sc">|&gt;</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator1 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Fator1), <span class="st">'TESTEMUNHA'</span>, Fator1)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator2 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Fator2), <span class="dv">0</span>, Fator2))</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sev.med <span class="sc">~</span> Fator1<span class="sc">*</span>Fator2 <span class="sc">+</span> block, y.max.pre)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>y.max.pre <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>treat.ad, <span class="sc">-</span>assessment) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator1 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Fator1), <span class="st">'TESTEMUNHA'</span>, Fator1)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator2 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Fator2), <span class="dv">0</span>, Fator2))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(y.max.pre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Fator1</th>
+<th style="text-align: left;">Fator2</th>
+<th style="text-align: right;">block</th>
+<th style="text-align: right;">sev.med</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7.24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.69</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4.81</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">11.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">12.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.89</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6.22</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.36</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.89</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">V6/V8+VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">7.61</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6.34</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORIXTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8.44</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">10.67</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">9.37</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sev.med <span class="sc">~</span> Fator1<span class="sc">*</span>Fator2 <span class="sc">+</span> block, y.max.pre)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>OK: residuals appear as normally distributed (p = 0.788).</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>OK: Error variance appears to be homoscedastic (p = 0.377).</code></pre>
 </div>
@@ -509,13 +1527,13 @@ TESTEMUNHA  -  PRIORIXTRA VT        0.1090  ns</code></pre>
 <section id="anova-e-teste-de-tukey-1" class="level3">
 <h3 class="anchored" data-anchor-id="anova-e-teste-de-tukey-1">Anova e teste de Tukey</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fator.y <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!-</span><span class="fu">is.na</span>(Fator1))</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>treat.ad.y <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!-</span><span class="fu">is.na</span>(treat.ad))</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">fat2.ad.dbc</span>(<span class="at">fator1 =</span> fator.y<span class="sc">$</span>Fator1, <span class="at">fator2 =</span> fator.y<span class="sc">$</span>Fator2, <span class="at">bloco =</span> fator.y<span class="sc">$</span>block, <span class="at">resp =</span> fator.y<span class="sc">$</span>sev.med, <span class="at">respAd =</span> treat.ad.y<span class="sc">$</span>sev.med, <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">'Fungicidas'</span>, <span class="st">'Estádios'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fator.y <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!-</span><span class="fu">is.na</span>(Fator1))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>treat.ad.y <span class="ot">&lt;-</span> y.max <span class="sc">|&gt;</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!-</span><span class="fu">is.na</span>(treat.ad))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">fat2.ad.dbc</span>(<span class="at">fator1 =</span> fator.y<span class="sc">$</span>Fator1, <span class="at">fator2 =</span> fator.y<span class="sc">$</span>Fator2, <span class="at">bloco =</span> fator.y<span class="sc">$</span>block, <span class="at">resp =</span> fator.y<span class="sc">$</span>sev.med, <span class="at">respAd =</span> treat.ad.y<span class="sc">$</span>sev.med, <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">'Fungicidas'</span>, <span class="st">'Estádios'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
@@ -575,22 +1593,22 @@ a    VT      7.34625
 <section id="teste-de-dunnett-1" class="level3">
 <h3 class="anchored" data-anchor-id="teste-de-dunnett-1">Teste de Dunnett</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnett</span>(<span class="at">trat =</span> y.max1<span class="sc">$</span>treat, <span class="at">resp =</span> y.max1<span class="sc">$</span>sev.med, <span class="at">control =</span> <span class="st">'TESTEMUNHA'</span>, <span class="at">model =</span> <span class="st">'DBC'</span>, <span class="at">block =</span> y.max1<span class="sc">$</span>block)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnett</span>(<span class="at">trat =</span> y.max1<span class="sc">$</span>treat, <span class="at">resp =</span> y.max1<span class="sc">$</span>sev.med, <span class="at">control =</span> <span class="st">'TESTEMUNHA'</span>, <span class="at">model =</span> <span class="st">'DBC'</span>, <span class="at">block =</span> y.max1<span class="sc">$</span>block)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                   Estimate     IC-lwr     IC-upr t value
-TESTEMUNHA  -  FOX V6/V8            -4.8250  -8.754814 -0.8951863 -3.4746
-TESTEMUNHA  -  FOX V6/V8+VT         -5.0325  -8.962314 -1.1026863 -3.6240
-TESTEMUNHA  -  FOX VT               -1.2000  -5.129814  2.7298137 -0.8642
-TESTEMUNHA  -  PRIORIXTRA V6/V8     -3.6700  -7.599814  0.2598137 -2.6429
-TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  -6.9150 -10.844814 -2.9851863 -4.9797
-TESTEMUNHA  -  PRIORIXTRA VT        -2.1825  -6.112314  1.7473137 -1.5717
+TESTEMUNHA  -  FOX V6/V8            -4.8250  -8.754932 -0.8950676 -3.4746
+TESTEMUNHA  -  FOX V6/V8+VT         -5.0325  -8.962432 -1.1025676 -3.6240
+TESTEMUNHA  -  FOX VT               -1.2000  -5.129932  2.7299324 -0.8642
+TESTEMUNHA  -  PRIORIXTRA V6/V8     -3.6700  -7.599932  0.2599324 -2.6429
+TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  -6.9150 -10.844932 -2.9850676 -4.9797
+TESTEMUNHA  -  PRIORIXTRA VT        -2.1825  -6.112432  1.7474324 -1.5717
                                    p-value sig
 TESTEMUNHA  -  FOX V6/V8            0.0131   *
-TESTEMUNHA  -  FOX V6/V8+VT         0.0096   *
-TESTEMUNHA  -  FOX VT               0.8905  ns
-TESTEMUNHA  -  PRIORIXTRA V6/V8     0.0726  ns
-TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  0.0005   *
-TESTEMUNHA  -  PRIORIXTRA VT        0.4462  ns</code></pre>
+TESTEMUNHA  -  FOX V6/V8+VT         0.0098   *
+TESTEMUNHA  -  FOX VT               0.8906  ns
+TESTEMUNHA  -  PRIORIXTRA V6/V8     0.0725  ns
+TESTEMUNHA  -  PRIORIXTRA V6/V8+VT  0.0004   *
+TESTEMUNHA  -  PRIORIXTRA VT        0.4459  ns</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -608,29 +1626,212 @@ TESTEMUNHA  -  PRIORIXTRA VT        0.4462  ns</code></pre>
 <section id="ajuste-dos-dados-2" class="level3">
 <h3 class="anchored" data-anchor-id="ajuste-dos-dados-2">Ajuste dos dados</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>produtividade <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Fator1, Fator2, treat.ad, block, productivity)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>trat.ad <span class="ot">&lt;-</span> produtividade <span class="sc">|&gt;</span> </span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(treat.ad <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(productivity)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>fatorial <span class="ot">&lt;-</span> produtividade <span class="sc">|&gt;</span> </span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Fator1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>produtividade <span class="ot">&lt;-</span> dados <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Fator1, Fator2, treat.ad, block, productivity)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>trat.ad <span class="ot">&lt;-</span> produtividade <span class="sc">|&gt;</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(treat.ad <span class="sc">==</span> <span class="st">'TESTEMUNHA'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(productivity)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>fatorial <span class="ot">&lt;-</span> produtividade <span class="sc">|&gt;</span> </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Fator1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="premissas-2" class="level3">
 <h3 class="anchored" data-anchor-id="premissas-2">Premissas</h3>
 <p>Premissas atendidas!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>prod.pre <span class="ot">&lt;-</span> produtividade <span class="sc">|&gt;</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>treat.ad) <span class="sc">|&gt;</span> </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator1 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Fator1), <span class="st">'TESTEMUNHA'</span>, Fator1)) <span class="sc">|&gt;</span> </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator2 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Fator2), <span class="dv">0</span>, Fator2))</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(productivity <span class="sc">~</span> Fator1<span class="sc">*</span>Fator2 <span class="sc">+</span> block, prod.pre)</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>prod.pre <span class="ot">&lt;-</span> produtividade <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>treat.ad) <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator1 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Fator1), <span class="st">'TESTEMUNHA'</span>, Fator1)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fator2 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Fator2), <span class="dv">0</span>, Fator2))</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(prod.pre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Fator1</th>
+<th style="text-align: left;">Fator2</th>
+<th style="text-align: right;">block</th>
+<th style="text-align: right;">productivity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">41.07406</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">47.99257</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">47.44443</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">40.58332</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8 + VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">39.81480</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8 + VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">55.68516</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8 + VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">39.81480</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">V6/V8 + VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">50.33331</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">49.21294</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">48.72220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">41.58332</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FOX</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">44.95369</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">39.24998</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">54.76850</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">43.36109</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">V6/V8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">45.90739</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">V6/V8 + VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">48.65739</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">V6/V8 + VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">42.12961</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">V6/V8 + VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">44.20369</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">V6/V8 + VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">49.85183</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">44.92591</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">40.21295</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">45.61109</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRIORI XTRA</td>
+<td style="text-align: left;">VT</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">49.92591</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">41.94443</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">47.24998</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">46.60183</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TESTEMUNHA</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">44.10183</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(productivity <span class="sc">~</span> Fator1<span class="sc">*</span>Fator2 <span class="sc">+</span> block, prod.pre)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>OK: residuals appear as normally distributed (p = 0.197).</code></pre>
 </div>
@@ -710,12 +1911,12 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnett</span>(<span class="at">trat =</span> produtividade2<span class="sc">$</span>treat, <span class="at">resp =</span> produtividade2<span class="sc">$</span>productivity, <span class="at">control =</span> <span class="st">'TESTEMUNHA'</span>, <span class="at">model =</span> <span class="st">'DBC'</span>, <span class="at">block =</span> produtividade2<span class="sc">$</span>block)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                        Estimate     IC-lwr    IC-upr t value
-TESTEMUNHA  -  FOX V6/V8              -0.7009225 -10.290336  8.888491 -0.2068
-TESTEMUNHA  -  FOX V6/V8 + VT          1.4375000  -8.151913 11.026913  0.4241
-TESTEMUNHA  -  FOX VT                  1.1435200  -8.445893 10.732933  0.3374
-TESTEMUNHA  -  PRIORI XTRA V6/V8       0.8472225  -8.742191 10.436636  0.2500
-TESTEMUNHA  -  PRIORI XTRA V6/V8 + VT  1.2361125  -8.353301 10.825526  0.3647
-TESTEMUNHA  -  PRIORI XTRA VT          0.1944475  -9.394966  9.783861  0.0574
+TESTEMUNHA  -  FOX V6/V8              -0.7009225 -10.291530  8.889685 -0.2068
+TESTEMUNHA  -  FOX V6/V8 + VT          1.4375000  -8.153107 11.028107  0.4241
+TESTEMUNHA  -  FOX VT                  1.1435200  -8.447087 10.734127  0.3374
+TESTEMUNHA  -  PRIORI XTRA V6/V8       0.8472225  -8.743385 10.437830  0.2500
+TESTEMUNHA  -  PRIORI XTRA V6/V8 + VT  1.2361125  -8.354495 10.826720  0.3647
+TESTEMUNHA  -  PRIORI XTRA VT          0.1944475  -9.396160  9.785055  0.0574
                                       p-value sig
 TESTEMUNHA  -  FOX V6/V8               0.9999  ns
 TESTEMUNHA  -  FOX V6/V8 + VT          0.9958  ns

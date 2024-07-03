@@ -1,0 +1,5 @@
+"0","# Dados de produtividade"
+"0","dados <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1KPWFOqs_Cclj3VgiHPxP3zazOmucRVAc/edit?gid=836516162#gid=836516162')"
+"0",""
+"0","# Dados de severidade"
+"0","dados2 <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1KPWFOqs_Cclj3VgiHPxP3zazOmucRVAc/edit?gid=1484935950#gid=1484935950')"

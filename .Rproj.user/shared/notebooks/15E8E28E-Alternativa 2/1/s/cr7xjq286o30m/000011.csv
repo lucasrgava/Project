@@ -1,0 +1,9 @@
+"0","dados2 <- dados2 |> "
+"0","  mutate(sev.med = rowMeans(across(starts_with('sev_f')))) |> "
+"0","  dplyr::select(- c(9, 10, 11)) |> "
+"0","  group_by(treat, block, assessment) |> "
+"0","  summarise(sev.med = mean(sev.med))"
+"1","[38;5;255m`summarise()` has grouped output by 'treat', 'block'. You can override using the `.groups` argument.[39m
+"
+"0","  "
+"0","knitr::kable(dados2)"
